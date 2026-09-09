@@ -1,3 +1,5 @@
+import { Router } from 'express';
+
 const Router = require('express');
 const usuariosRoutes = express.Router();
 

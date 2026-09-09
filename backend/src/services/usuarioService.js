@@ -1,15 +1,11 @@
+const Usuario = require('../models/Usuario');
+
 const obterTodosUsuarios = async () => {
-    const mockUsuarios = [
-        {
-            id: 1, nome: 'João', email: 'joao@email.com'
-        },
-
-        {
-            id: 2, nome: 'Marcos', email: 'marcos@email.com'
-        }
-    ]
-
-    return mockUsuarios;
+    return await Usuario.findAll();
 };
 
-module.export = { obterTodosUsuarios }
+const criarUsuario = async ({ nome, email, senha }) => {
+    return await Usuario.create({ nome, email, senha });
+}
+
+module.exports = { obterTodosUsuarios, criarUsuario }

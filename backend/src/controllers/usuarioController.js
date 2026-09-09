@@ -9,4 +9,18 @@ const buscarUsuarios = async (req, res) => {
     }
 };
 
+const criarUsuario = async (req, rest) => {
+    try {
+        const { nome, email, senha } = req.body;
+
+        if (!nome || !email || !senha) return res.status(400).json({ err: 'Dados Invalidos' });
+
+        const usuario = await usuarioService.criarUsuario(nome, email, senha);
+        res.status(201).json(usuario);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ err: 'Erro interno ao criar usuario' });
+    }
+};
+
 module.exports = { buscarUsuarios }
