@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { LayoutDashboard, Users, Settings, LogOut, Sun, Moon, Activity } from 'lucide-react';
-import Usuario from './pages/Usuarios/Usuario'
+import Usuario from './pages/Usuarios/Usuario';
 import Home from './pages/Home/Home';
 
 function App() {
@@ -64,6 +64,7 @@ function App() {
           <main className="page-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/usuarios" element={<Usuario />} />
             </Routes>
           </main>
         </div>

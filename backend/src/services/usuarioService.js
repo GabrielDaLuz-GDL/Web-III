@@ -4,8 +4,28 @@ const obterTodosUsuarios = async () => {
     return await Usuario.findAll();
 };
 
+const obterUsuarioPorId = async (id) => {
+    return await Usuario.findByPk(id);
+};
+
 const criarUsuario = async ({ nome, email, senha }) => {
     return await Usuario.create({ nome, email, senha });
-}
+};
 
-module.exports = { obterTodosUsuarios, criarUsuario }
+const atualizarUsuario = async (id, dados) => {
+    const usuario = await Usuario.findByPk(id);
+    if (!usuario) return null;
+
+    await usuario.update(dados);
+    return usuario;
+};
+
+const deletarUsuario = async (id) => {
+    const usuario = await Usuario.findByPk(id);
+    if (!usuario) return null;
+
+    await usuario.destroy();
+    return usuario;
+};
+
+module.exports = { obterTodosUsuarios, obterUsuarioPorId, criarUsuario, atualizarUsuario, deletarUsuario }
