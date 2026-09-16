@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 const usuarioService = require('../services/usuarioService')
 
 const buscarUsuarios = async (req, res) => {
+=======
+ const usuarioService = require('../services/usuarioService')
+
+ const buscarUsuarios = async (req, res) => {
+>>>>>>> c5cf86c059729f25df4e5e001551fc767703ed27
     try {
         const usuarios = await usuarioService.obterTodosUsuarios();
         res.status(200).json({ data:usuarios })
     } catch(err) {
         res.status(500).json({ err: 'Erro interno ao buscar usuarios' })
     }
+<<<<<<< HEAD
 };
 
 const buscarUsuarioPorId = async (req, res) => {
@@ -70,3 +77,8 @@ const deletarUsuario = async (req, res) => {
 }
 
 module.exports = { buscarUsuarios, criarUsuario, buscarUsuarioPorId, atualizarUsuario, deletarUsuario };
+=======
+ };
+
+ module.exports = { buscarUsuarios }
+>>>>>>> c5cf86c059729f25df4e5e001551fc767703ed27

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const Usuario = require('../models/Usuario');
 
 const obterTodosUsuarios = async () => {
@@ -29,3 +30,20 @@ const deletarUsuario = async (id) => {
 };
 
 module.exports = { obterTodosUsuarios, obterUsuarioPorId, criarUsuario, atualizarUsuario, deletarUsuario }
+=======
+const obterTodosUsuarios = async () => {
+    const mockUsuarios = [
+        {
+            id: 1, nome: 'João', email: 'joao@email.com'
+        },
+
+        {
+            id: 2, nome: 'Marcos', email: 'marcos@email.com'
+        }
+    ]
+
+    return mockUsuarios;
+};
+
+module.export = { obterTodosUsuarios }
+>>>>>>> c5cf86c059729f25df4e5e001551fc767703ed27
