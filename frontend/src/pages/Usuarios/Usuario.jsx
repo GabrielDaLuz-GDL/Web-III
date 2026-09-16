@@ -104,9 +104,49 @@ function Usuarios() {
                             <td>{usuario.nome}</td>
                             <td>{usuario.email}</td>
                             <td>
-                                <button onClick={() => handleVerPorId(usuario.id)}>Ver</button>
-                                <button onClick={() => abrirModalEditar(usuario)}>Editar</button>
-                                <button onClick={() => handleExcluir(usuario.id)}>Excluir</button>
+                                <button
+                                    onClick={() => handleVerPorId(usuario.id)}
+                                    style={{
+                                        padding: '6px 12px',
+                                        marginRight: '6px',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        backgroundColor: '#3498db',
+                                        color: 'white',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Ver
+                                </button>
+
+                                <button
+                                    onClick={() => abrirModalEditar(usuario)}
+                                    style={{
+                                        padding: '6px 12px',
+                                        marginRight: '6px',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        backgroundColor: '#f39c12',
+                                        color: 'white',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Editar
+                                </button>
+
+                                <button
+                                    onClick={() => handleExcluir(usuario.id)}
+                                    style={{
+                                        padding: '6px 12px',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        backgroundColor: '#e74c3c',
+                                        color: 'white',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    Excluir
+                                </button>
                             </td>
                         </tr>
                     ))}
