@@ -33,7 +33,10 @@ Usuario.init (
         sequelize,
         modelName: 'Usuario',
         tableName: 'usuarios',
-        timestamps: true
+        timestamps: true,
+        defaultScope: {
+            attributes: { exclude: ['senha']}
+        }
     }
 );
 

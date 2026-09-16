@@ -1,19 +1,13 @@
-<<<<<<< HEAD
-const usuarioService = require('../services/usuarioService')
+const usuarioService = require('../services/usuarioService');
+const bcrypt = require('bcrypt');
 
 const buscarUsuarios = async (req, res) => {
-=======
- const usuarioService = require('../services/usuarioService')
-
- const buscarUsuarios = async (req, res) => {
->>>>>>> c5cf86c059729f25df4e5e001551fc767703ed27
     try {
         const usuarios = await usuarioService.obterTodosUsuarios();
-        res.status(200).json({ data:usuarios })
-    } catch(err) {
-        res.status(500).json({ err: 'Erro interno ao buscar usuarios' })
+        res.status(200).json({ data: usuarios });
+    } catch (err) {
+        res.status(500).json({ err: 'Erro interno ao buscar usuarios' });
     }
-<<<<<<< HEAD
 };
 
 const buscarUsuarioPorId = async (req, res) => {
@@ -34,6 +28,8 @@ const criarUsuario = async (req, res) => {
         const { nome, email, senha } = req.body;
 
         if (!nome || !email || !senha) return res.status(400).json({ err: 'Dados Invalidos' });
+
+        const hash = await bcrypt.hash(senha,10);
 
         const usuario = await usuarioService.criarUsuario({ nome, email, senha });
         res.status(201).json(usuario);
@@ -74,11 +70,12 @@ const deletarUsuario = async (req, res) => {
         console.error(err);
         res.status(500).json({ err: 'Erro interno ao deletar usuario' });
     }
-}
+};
 
-module.exports = { buscarUsuarios, criarUsuario, buscarUsuarioPorId, atualizarUsuario, deletarUsuario };
-=======
- };
-
- module.exports = { buscarUsuarios }
->>>>>>> c5cf86c059729f25df4e5e001551fc767703ed27
+module.exports = { 
+    buscarUsuarios, 
+    criarUsuario, 
+    buscarUsuarioPorId, 
+    atualizarUsuario, 
+    deletarUsuario 
+};
