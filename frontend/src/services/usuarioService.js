@@ -1,5 +1,20 @@
 import api from './api';
 
+export const login = async (email, senha) => {
+    const response = await api.post('/login', {email, senha});
+    return response.data;
+};
+
+export const salvarSessão = async (token, usuario) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+};
+
+export const limparSessão = () => {
+    localStorage.removeItem('token');
+    localStorage.remove('usuario');
+}
+
 export const getUsuarios = async (search = '') => {
     const response = await api.get('/usuarios', {
         params: { search },
